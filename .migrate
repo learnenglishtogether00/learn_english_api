@@ -1,0 +1,9 @@
+{
+  "lastRun": "1625063795818-init-word-type.cjs",
+  "migrations": [
+    {
+      "title": "1625063795818-init-word-type.cjs",
+      "timestamp": 1625065122766
+    }
+  ]
+}
