@@ -6,6 +6,7 @@ import logger from "morgan";
 import dotenv from "dotenv";
 
 import mainRoutes from "./server/routes/main.js";
+import AuthMiddleware from "./server/middleware/AuthMiddleware.js";
 
 const PORT = 5035;
 const DB_HOST = process.env.DB_HOST || "localhost";
@@ -32,6 +33,7 @@ mongoose
     console.log("Error connecting to database");
   });
 
+app.use(AuthMiddleware);
 app.use("/api/", mainRoutes);
 
 app.listen(PORT, (request, respond) => {

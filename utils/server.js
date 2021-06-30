@@ -14,4 +14,11 @@ const errRes = ({ res, err }) => {
   });
 };
 
-export { successRes, errRes };
+const notifyRes = ({ res, msg }) => {
+  res.status(401).json({
+    success: false,
+    message: msg,
+  });
+};
+
+export { successRes, errRes, notifyRes };
