@@ -13,21 +13,27 @@ Bluebird.promisifyAll(MongoClient);
 
 const WORD_TYPE_DATA = [
   {
+    id: "d29709c9-f61f-46ae-9b4d-e24b846ee1d9",
     name: "Danh từ (N)",
   },
   {
+    id: "80511ad5-4fb5-4e12-ba60-e323a23e2ca8",
     name: "Động từ (V)",
   },
   {
+    id: "8d318f59-b78b-4086-ab85-a6a1f33add02",
     name: "Trạng từ (ADV)",
   },
   {
+    id: "5300e488-24b7-4e5a-be29-633a32c5df87",
     name: "Tính từ (ADJ)",
   },
   {
+    id: "16ad8448-e1cd-43ae-a809-47b9ffab1b6c",
     name: "Cụm danh từ",
   },
   {
+    id: "4cba545d-781c-4e91-8d00-c2ba14c39a62",
     name: "Khác",
   },
 ];

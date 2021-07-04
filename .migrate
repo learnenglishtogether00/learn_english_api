@@ -1,13 +1,17 @@
 {
-  "lastRun": "1625069834530-init-user.cjs",
+  "lastRun": "1625403944196-init-word.cjs",
   "migrations": [
     {
       "title": "1625063795818-init-word-type.cjs",
-      "timestamp": 1625069992854
+      "timestamp": 1625406999100
     },
     {
       "title": "1625069834530-init-user.cjs",
-      "timestamp": 1625069992927
+      "timestamp": 1625406999176
+    },
+    {
+      "title": "1625403944196-init-word.cjs",
+      "timestamp": 1625406999184
     }
   ]
 }

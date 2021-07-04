@@ -25,6 +25,8 @@ mongoose
   .connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
   })
   .then(() => {
     console.log("Database connected");
@@ -33,7 +35,7 @@ mongoose
     console.log("Error connecting to database");
   });
 
-app.use(AuthMiddleware);
+// app.use(AuthMiddleware);
 app.use("/api/", mainRoutes);
 
 app.listen(PORT, (request, respond) => {
