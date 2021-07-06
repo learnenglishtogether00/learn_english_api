@@ -59,8 +59,6 @@ const getWordsByEN = (req, res) => {
 const getWordByWordId = (req, res) => {
   const wordId = req.params.wordId;
 
-  console.log({ wordId });
-
   return Word.findOne({ id: wordId })
     .then((word) => {
       return successRes({
