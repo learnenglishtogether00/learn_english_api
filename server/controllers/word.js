@@ -1,4 +1,5 @@
 import Word from "../models/word.js";
+import WordType from "../models/wordType.js";
 import { successRes, errRes } from "../../utils/server.js";
 
 const createWord = (req, res) => {
@@ -7,7 +8,7 @@ const createWord = (req, res) => {
   const word = new Word({
     word: bodyData.word,
     desc: bodyData.desc || "",
-    wordTypeIds: bodyData.wordTypeIds,
+    wordTypeId: bodyData.wordTypeId,
     vnWords: bodyData.vnWords,
     related: bodyData.related,
   });
@@ -40,20 +41,37 @@ const getWords = (req, res) => {
     });
 };
 
-const getWordsByEN = (req, res) => {
+const getWordsByEN = async (req, res) => {
   const keyWord = req.params.keyWord;
 
-  return Word.find({ word: { $regex: keyWord, $options: "i" } })
-    .then((word) => {
-      return successRes({
-        res,
-        msg: "Get words successfully",
-        data: word,
-      });
-    })
-    .catch((err) => {
-      return errRes({ res, err });
+  const words = await Word.find({
+    word: { $regex: keyWord, $options: "i" },
+  }).lean();
+
+  if (!words) {
+    return errRes({
+      res,
+      err: {
+        message: "Get Words By En Failed",
+      },
     });
+  }
+
+  let data = [];
+
+  for (const word of words) {
+    const wordType = await WordType.findOne({ id: word.wordTypeId });
+    data.push({
+      ...word,
+      wordType,
+    });
+  }
+
+  return successRes({
+    res,
+    msg: "Get words successfully",
+    data,
+  });
 };
 
 const getWordByWordId = (req, res) => {

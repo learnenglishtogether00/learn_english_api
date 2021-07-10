@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import logger from "morgan";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import mainRoutes from "./server/routes/main.js";
 import AuthMiddleware from "./server/middleware/AuthMiddleware.js";
@@ -16,6 +17,7 @@ const DB_NAME = process.env.DB_NAME || "learn_english";
 // set up dependencies
 const app = express();
 dotenv.config();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger("dev"));

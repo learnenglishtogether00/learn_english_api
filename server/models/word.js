@@ -17,8 +17,8 @@ const wordSchema = new mongoose.Schema({
   desc: {
     type: String,
   },
-  wordTypeIds: {
-    type: Array,
+  wordTypeId: {
+    type: String,
   },
   vnWords: {
     type: Array,
